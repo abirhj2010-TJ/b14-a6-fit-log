@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import NavLink from "./NavLink";
+import '../../app/globals.css'
 
 const Navbar = () => {
   return (
@@ -78,6 +79,7 @@ const Navbar = () => {
               sm:text-lg
               md:text-xl
               font-bold
+              font-heading
             "
           >
             FITLOG

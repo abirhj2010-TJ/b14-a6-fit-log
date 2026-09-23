@@ -23,7 +23,7 @@ const Banner = () => {
       "
     >
       <div className="space-y-4 sm:space-y-5 w-full md:w-1/2">
-        <span className="text-[#C2F800] text-xs sm:text-sm font-bold">
+        <span className="text-[#C2F800] text-xs sm:text-sm font-bold font-body">
           WORKOUT LIBRARY
         </span>
 
@@ -32,8 +32,10 @@ const Banner = () => {
             text-3xl
             sm:text-4xl
             lg:text-5xl
+            font-heading
             font-bold
             max-w-2xl
+            mt-3
           "
         >
           TRAIN WITH INTENT. LOG EVERY SET
@@ -43,7 +45,7 @@ const Banner = () => {
           className="
             text-sm
             sm:text-base
-            text-gray-300
+            text-[#9CA3AF]
             max-w-md
           "
         >
