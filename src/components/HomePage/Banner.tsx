@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -53,7 +54,8 @@ const Banner = () => {
           today&apos;s plan, and watch the week&apos;s work add up.
         </p>
 
-        <button
+        <a
+          href="#library"
           className="
             btn
             bg-[#C2F800]
@@ -71,7 +73,7 @@ const Banner = () => {
           "
         >
           BROWSE WORKOUTS
-        </button>
+        </a>
       </div>
 
       <div className="w-full md:w-1/2 flex justify-center md:justify-end">

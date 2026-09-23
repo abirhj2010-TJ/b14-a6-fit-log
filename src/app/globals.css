@@ -5,6 +5,9 @@
   --font-body: var(--font-inter);
   --font-heading: var(--font-oswald);
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-inter);
