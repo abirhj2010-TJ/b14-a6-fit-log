@@ -9,6 +9,10 @@ const Navbar = () => {
         navbar
         border-b border-gray-800
         shadow-sm
+        sticky
+        top-0
+        bg-[#090A0D]
+        z-50
         mb-5 md:mb-8 lg:mb-15
         px-2 sm:px-4 md:px-8 lg:px-16 xl:px-24
       "
