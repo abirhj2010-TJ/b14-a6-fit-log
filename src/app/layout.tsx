@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import { Bounce, ToastContainer } from "react-toastify";
 import Navbar from "@/components/HomePage/Navbar";
+import Footer from "@/components/HomePage/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +14,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,10 +28,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#090A0D] container mx-auto">
-
-      <Navbar></Navbar>
+        <Navbar></Navbar>
 
         {children}
+
+        <Footer></Footer>
 
         <ToastContainer
           position="top-right"
