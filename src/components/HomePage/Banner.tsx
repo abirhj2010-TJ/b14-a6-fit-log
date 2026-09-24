@@ -19,8 +19,8 @@ const Banner = () => {
         gap-8
         md:gap-6
         lg:gap-10
-        mb-8
-        md:mb-10
+        my-5
+        md:my-7
       "
     >
       <div className="space-y-4 sm:space-y-5 w-full md:w-1/2">
