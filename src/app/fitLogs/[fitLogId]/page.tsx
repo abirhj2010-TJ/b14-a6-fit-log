@@ -1,5 +1,5 @@
 import type { Workout } from "@/type/type";
-import FitLogDetailsCard from "@/components/shared/FitLogDetailsCard";
+import FitLogDetailsCard from "@/components/FitLogDetailsCard";
 
 type Props = {
   params: Promise<{

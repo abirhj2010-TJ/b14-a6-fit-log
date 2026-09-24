@@ -1,0 +1,82 @@
+"use client";
+import { FitLogContext } from "@/context/FitLogContext";
+import { Workout } from "@/type/type";
+import { useContext } from "react";
+import { FaBookmark, FaCalendarPlus } from "react-icons/fa";
+import { toast } from "react-toastify";
+
+const FitLogDetailsCardButton = ({ fitLog }: { fitLog: Workout }) => {
+  const { plan, setPlan, saved, setSaved } = useContext(FitLogContext);
+
+  const handlePlan = () => {
+    const alreadyAdded = plan.some((item) => item.id === fitLog.id);
+
+    if (alreadyAdded) {
+      toast.error("Already added to Plan");
+      return;
+    }
+
+    setPlan((prev) => [...prev, fitLog]);
+    toast.success("Added to Plan");
+  };
+
+  const handleSaved = () => {
+    const alreadySaved = saved.some((item) => item.id === fitLog.id);
+
+    if (alreadySaved) {
+      toast.error("Already saved");
+      return;
+    }
+
+    setSaved((prev) => [...prev, fitLog]);
+    toast.success("Saved");
+  };
+
+  return (
+    <div className="w-full flex flex-col sm:flex-row gap-3">
+      <button
+        onClick={handlePlan}
+        className="
+                        btn
+                        w-full
+                        sm:flex-1
+                      bg-[#C2F800]
+                      hover:bg-[#C2F800]
+                      text-black
+                        border-0
+                        rounded-xl
+                        font-semibold
+                        text-xs
+                        sm:text-sm
+                        "
+      >
+        <FaCalendarPlus />
+        Add to today&apos;s plan
+      </button>
+
+      <button
+      onClick={handleSaved}
+        className="
+                        btn
+                        w-full
+                        sm:flex-1
+                        bg-transparent
+                      hover:bg-[#C2F800]/10
+                      text-white
+                        border
+                      border-gray-700
+                      hover:border-[#C2F800]
+                        rounded-xl
+                        font-medium
+                        text-xs
+                        sm:text-sm
+                "
+      >
+        <FaBookmark />
+        Save for later
+      </button>
+    </div>
+  );
+};
+
+export default FitLogDetailsCardButton;

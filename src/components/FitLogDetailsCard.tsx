@@ -1,12 +1,17 @@
 import Image from "next/image";
-import { FaBookmark, FaCalendarPlus } from "react-icons/fa";
+// import { FaBookmark, FaCalendarPlus } from "react-icons/fa";
 import type { Workout } from "@/type/type";
+import FitLogDetailsCardButton from "./FitLogDetailsCardButton";
+// import { useContext } from "react";
+// import { FitLogContext } from "@/context/FitLogContext";
 
 type FitLogDetailsCardProps = {
   fitLog: Workout;
 };
 
 const FitLogDetailsCard = ({ fitLog }: FitLogDetailsCardProps) => {
+
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10 ">
       <div>
@@ -19,8 +24,8 @@ const FitLogDetailsCard = ({ fitLog }: FitLogDetailsCardProps) => {
             w-full
             h-80
             sm:h-100
-            md:h-125
-            lg:h-130
+            md:h-140
+            lg:h-170
             object-cover
             rounded-2xl
           "
@@ -126,46 +131,8 @@ const FitLogDetailsCard = ({ fitLog }: FitLogDetailsCardProps) => {
           </ol>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 mt-7">
-          <button
-            className="
-            btn
-            w-full
-            sm:flex-1
-          bg-[#C2F800]
-          hover:bg-[#C2F800]
-          text-black
-            border-0
-            rounded-xl
-            font-semibold
-            text-xs
-            sm:text-sm
-            "
-          >
-            <FaCalendarPlus />
-            Add to today&apos;s plan
-          </button>
-
-          <button
-            className="
-            btn
-            w-full
-            sm:flex-1
-            bg-transparent
-          hover:bg-[#C2F800]/10
-          text-white
-            border
-          border-gray-700
-          hover:border-[#C2F800]
-            rounded-xl
-            font-medium
-            text-xs
-            sm:text-sm
-    "
-          >
-            <FaBookmark />
-            Save for later
-          </button>
+        <div className="mt-7">
+          <FitLogDetailsCardButton fitLog = {fitLog}></FitLogDetailsCardButton>
         </div>
       </div>
     </div>

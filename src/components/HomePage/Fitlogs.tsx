@@ -1,6 +1,6 @@
 import { Workout } from "@/type/type";
 import React from "react";
-import FitlogsCard from "../shared/FitlogsCard";
+import FitlogsCard from "../FitlogsCard";
 
 const getFitLogs = async () => {
   const res = await fetch("https://api.abcz.workers.dev/api/fitlog");

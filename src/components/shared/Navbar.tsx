@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import NavLink from "./NavLink";
 import '../../app/globals.css'
+import NavBadge from "./NavBadge";
 
 const Navbar = () => {
   return (
@@ -14,7 +15,7 @@ const Navbar = () => {
         top-0
         bg-[#090A0D]
         z-50
-        mb-5 md:mb-8 lg:mb-15
+        mb-1 md:mb-5 lg:mb-8
         px-2 sm:px-4 md:px-8 lg:px-16 xl:px-24
       "
     >
@@ -89,78 +90,12 @@ const Navbar = () => {
 
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1">
-          <NavLink />
+          <NavLink></NavLink>
         </ul>
       </div>
 
-      <div className="navbar-end gap-1 sm:gap-2">
-        <Link
-          href="/my-plan"
-          className="
-            btn btn-ghost
-            rounded-full
-            btn-xs
-            sm:btn-sm
-            md:btn-md
-            px-2
-            sm:px-3
-            md:px-4
-            text-[11px]
-            sm:text-xs
-            md:text-sm
-          "
-        >
-          <span>Plan</span>
-
-          <div
-            className="
-              badge
-              rounded-full
-              w-5 h-5
-              sm:w-6 sm:h-6
-              md:w-7 md:h-7
-              bg-[#C2F800]
-              text-black
-              text-[10px]
-              sm:text-xs
-            "
-          >
-            2
-          </div>
-        </Link>
-
-        <Link
-          href="/my-plan"
-          className="
-            btn btn-ghost
-            rounded-full
-            btn-xs
-            sm:btn-sm
-            md:btn-md
-            px-2
-            sm:px-3
-            md:px-4
-            text-[10px]
-            sm:text-xs
-            md:text-sm
-          "
-        >
-          <span>Saved</span>
-
-          <div
-            className="
-              badge
-              rounded-full
-              w-5 h-5
-              sm:w-6 sm:h-6
-              md:w-7 md:h-7
-              text-[10px]
-              sm:text-xs
-            "
-          >
-            2
-          </div>
-        </Link>
+      <div className="navbar-end">
+        <NavBadge></NavBadge>
       </div>
     </div>
   );
