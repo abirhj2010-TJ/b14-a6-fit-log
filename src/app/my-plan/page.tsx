@@ -76,12 +76,12 @@ const MyPlan = () => {
       </div>
 
       <div className="my-10">
-        <div className="flex items-center justify-between gap-4">
-          <div className="tabs w-fit bg-[#101115] rounded-xl p-1">
+        <div className="flex items-center justify-between gap-1 min-w-0">
+          <div className="tabs flex-nowrap shrink-0 w-fit bg-[#101115] rounded-xl p-1">
             <input
               type="radio"
               name="my_tabs_6"
-              className="tab bg-transparent text-[#8A92A0] checked:bg-[#232732] checked:text-[#C2F800] rounded-lg"
+              className="tab shrink-0 min-w-0 bg-transparent text-[#8A92A0] checked:bg-[#232732] checked:text-[#C2F800] rounded-lg px-2 text-xs md:text-base"
               aria-label="Today's Plan"
               checked={activeTab === "plan"}
               onChange={() => setActiveTab("plan")}
@@ -90,15 +90,15 @@ const MyPlan = () => {
             <input
               type="radio"
               name="my_tabs_6"
-              className="tab bg-transparent text-[#8A92A0] checked:bg-[#232732] checked:text-[#C2F800] rounded-lg"
+              className="tab shrink-0 min-w-0 bg-transparent text-[#8A92A0] checked:bg-[#232732] checked:text-[#C2F800] rounded-lg px-2 text-xs md:text-base"
               aria-label="Saved"
               checked={activeTab === "saved"}
               onChange={() => setActiveTab("saved")}
             />
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="text-[#8A92A0] text-xs sm:text-sm whitespace-nowrap">
+          <div className="flex items-center gap-1 md:gap-2 shrink-0">
+            <span className="text-[#8A92A0] text-xs md:text-base whitespace-nowrap">
               Sort By
             </span>
 
@@ -110,14 +110,14 @@ const MyPlan = () => {
                     e.target.value as "duration" | "calories" | "rating",
                   )
                 }
-                className="appearance-none bg-[#13161D] border border-[#2a2e3b] text-white text-xs sm:text-sm rounded-lg pl-3 pr-8 py-2 outline-none focus:border-[#C2F800] cursor-pointer"
+                className="appearance-none bg-[#13161D] border border-[#2a2e3b] text-white text-xs  md:text-sm rounded-lg pl-2 pr-6 py-1.5 outline-none focus:border-[#C2F800] cursor-pointer"
               >
                 <option value="duration">Duration</option>
                 <option value="calories">Calories</option>
                 <option value="rating">Rating</option>
               </select>
 
-              <FaChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#8A92A0] text-[10px] pointer-events-none" />
+              <FaChevronDown className="absolute right-1.5 top-1/2 -translate-y-1/2 text-[#8A92A0] text-[8px] pointer-events-none" />
             </div>
           </div>
         </div>
