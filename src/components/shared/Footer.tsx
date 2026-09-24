@@ -8,8 +8,8 @@ const Footer = () => {
           src="/logo.png"
           alt="fitlog"
           width={30}
-          height={20}
-          className="-rotate-45"
+          height={30}
+          
         />
         <span className="font-bold text-base font-heading">FITLOG</span>
       </div>
