@@ -1,11 +1,14 @@
 "use client";
 
+import { FitLogContext } from "@/context/FitLogContext";
 import { Workout } from "@/type/type";
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
 import { FaClock, FaFire, FaStar } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { TiTick } from "react-icons/ti";
+import { toast } from "react-toastify";
 
 type PlanSavedCardProps = {
   workout: Workout;
@@ -13,8 +16,25 @@ type PlanSavedCardProps = {
 };
 
 const PlanSavedCard = ({ workout, type }: PlanSavedCardProps) => {
+  const { setPlan, setSaved } = useContext(FitLogContext);
+
+  const handleRemove = () => {
+    if (type === "plan") {
+      setPlan((prev) => prev.filter((item) => item.id !== workout.id));
+      toast.success("Workout removed from your plan");
+    } else {
+      setSaved((prev) => prev.filter((item) => item.id !== workout.id));
+      toast.success("Workout removed from saved");
+    }
+  };
+
+  const handleDone = () => {
+    setPlan((prev) => prev.filter((item) => item.id !== workout.id));
+    toast.success("Workout completed!");
+  };
+
   return (
-    <div className="bg-[#232732] rounded-xl p-3 sm:p-4 w-full">
+    <div className="bg-[#13161D] rounded-xl p-3 sm:p-4 w-full">
       <div className="flex items-center gap-3 sm:gap-4">
         <Image
           src={workout.image}
@@ -60,13 +80,17 @@ const PlanSavedCard = ({ workout, type }: PlanSavedCardProps) => {
           </Link>
 
           {type === "plan" && (
-            <button className="btn btn-xs md:btn-sm bg-[#C2F800] text-black border-0 hover:bg-[#C2F800] rounded-3xl px-2 md:px-4 text-[10px] md:text-xs whitespace-nowrap">
+            <button
+              onClick={handleDone}
+              className="btn btn-xs md:btn-sm bg-[#C2F800] text-black border-0 hover:bg-[#C2F800] rounded-3xl px-2 md:px-4 text-[10px] md:text-xs whitespace-nowrap"
+            >
               <TiTick size={16} />
               Mark as Done
             </button>
           )}
 
           <button
+            onClick={handleRemove}
             className="bg-transparent border-0 text-[#C2F800] hover:bg-transparent hover:text-white p-1.5 md:p-2"
             aria-label="Remove workout"
           >
@@ -75,27 +99,52 @@ const PlanSavedCard = ({ workout, type }: PlanSavedCardProps) => {
         </div>
       </div>
 
-      <div className="flex sm:hidden items-center justify-between gap-1.5 mt-3">
-        <Link
-          href={`/fitLogs/${workout.id}`}
-          className="btn btn-xs sm:btn-sm border border-gray-500 rounded-3xl px-2 sm:px-3 text-[9px] sm:text-xs whitespace-nowrap"
-        >
-          View Details
-        </Link>
+      <div className="flex sm:hidden items-center mt-3">
+        {type === "plan" ? (
+          <>
+            <div className="flex items-center gap-1.5">
+              <Link
+                href={`/fitLogs/${workout.id}`}
+                className="btn btn-xs border border-gray-500 rounded-3xl px-2 text-[9px] whitespace-nowrap"
+              >
+                View Details
+              </Link>
 
-        {type === "plan" && (
-          <button className="btn btn-xs sm:btn-sm bg-[#C2F800] text-black border-0 hover:bg-[#C2F800] rounded-3xl px-2 sm:px-3 text-[9px] sm:text-xs whitespace-nowrap">
-            <TiTick size={14} className="sm:w-4.25 sm:h-4.25" />
-            Mark as Done
-          </button>
+              <button
+                onClick={handleDone}
+                className="btn btn-xs bg-[#C2F800] text-black border-0 hover:bg-[#C2F800] rounded-3xl px-2 text-[9px] whitespace-nowrap"
+              >
+                <TiTick size={14} />
+                Mark as Done
+              </button>
+            </div>
+
+            <button
+              onClick={handleRemove}
+              className="ml-auto bg-transparent border-0 text-[#C2F800] hover:bg-transparent hover:text-white p-1.5"
+              aria-label="Remove workout"
+            >
+              <RxCross2 className="w-4.5 h-4.5" />
+            </button>
+          </>
+        ) : (
+          <div className="ml-auto flex items-center gap-1.5">
+            <Link
+              href={`/fitLogs/${workout.id}`}
+              className="btn btn-xs border border-gray-500 rounded-3xl px-2 text-[9px] whitespace-nowrap"
+            >
+              View Details
+            </Link>
+
+            <button
+              onClick={handleRemove}
+              className="bg-transparent border-0 text-[#C2F800] hover:bg-transparent hover:text-white p-1.5"
+              aria-label="Remove workout"
+            >
+              <RxCross2 className="w-4.5 h-4.5" />
+            </button>
+          </div>
         )}
-
-        <button
-          className="bg-transparent border-0 text-[#C2F800] hover:bg-transparent hover:text-white p-1.5 sm:p-2"
-          aria-label="Remove workout"
-        >
-          <RxCross2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
-        </button>
       </div>
     </div>
   );

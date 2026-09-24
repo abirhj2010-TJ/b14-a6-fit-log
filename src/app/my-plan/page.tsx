@@ -1,7 +1,7 @@
 "use client";
+
 import { FitLogContext } from "@/context/FitLogContext";
 import PlanSavedCard from "@/components/shared/PlanSavedCard";
-import Link from "next/link";
 import { useContext, useState } from "react";
 import { Workout } from "@/type/type";
 
@@ -9,7 +9,7 @@ const MyPlan = () => {
   const { plan, saved } = useContext(FitLogContext);
   const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
 
-  const activeWorkouts:Workout[] = activeTab === "plan" ? plan : saved;
+  const activeWorkouts: Workout[] = activeTab === "plan" ? plan : saved;
 
   const totalMinutes = activeWorkouts.reduce(
     (total, workout) => total + workout.duration,
@@ -32,7 +32,7 @@ const MyPlan = () => {
         </p>
       </div>
 
-      <div className="flex items-center bg-[#232732] p-5 md:p-8 lg:p-10 rounded-2xl gap-4 md:gap-5 lg:gap-7">
+      <div className="flex items-center bg-[#13161D] p-5 md:p-8 lg:p-10 rounded-2xl gap-4 md:gap-5 lg:gap-7">
         <div className="border-[#2a2e3b] border-r-2 flex-1">
           <h3 className="text-[#8A92A0] text-xs md:text-sm">Exercises</h3>
           <span className="text-[#C2F800] font-bold text-xl md:text-2xl lg:text-3xl">
@@ -56,59 +56,46 @@ const MyPlan = () => {
       </div>
 
       <div className="my-10">
-        <div className="tabs tabs-box w-full">
-          <input
-            type="radio"
-            name="my_tabs_6"
-            className="tab"
-            aria-label="Today's Plan"
-            checked={activeTab === "plan"}
-            onChange={() => setActiveTab("plan")}
-          />
+        <div className="w-full">
+          <div className="tabs w-fit bg-[#101115] rounded-xl p-1">
+            <input
+              type="radio"
+              name="my_tabs_6"
+              className="tab bg-transparent text-[#8A92A0] checked:bg-[#232732] checked:text-[#C2F800] rounded-lg"
+              aria-label="Today's Plan"
+              checked={activeTab === "plan"}
+              onChange={() => setActiveTab("plan")}
+            />
 
-          <div className="tab-content w-full bg-[#101115] border border-[#2a2e3b] rounded-b-2xl p-2 md:p-3">
-            {plan.length > 0 ? (
-              <div className="space-y-3 p-3 md:p-5">
-                {plan.map((workout) => (
-                  <PlanSavedCard
-                    key={workout.id}
-                    workout={workout}
-                    type="plan"
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="min-h-60 md:min-h-64 lg:min-h-72 border border-dashed border-[#272b34] rounded-xl flex flex-col justify-center items-center text-center px-5">
-                <h2 className="uppercase font-heading font-bold text-base md:text-lg mb-2">
-                  Nothing Here Yet
-                </h2>
-
-                <p className="text-xs md:text-sm text-[#8A8D96] mb-5">
-                  Browse the library and add a lift to get today moving.
-                </p>
-
-                <Link
-                  href="/"
-                  className="btn bg-[#C2F800] hover:bg-[#C2F800] text-black font-semibold rounded-3xl border-0 text-xs sm:text-sm px-5 sm:px-6"
-                >
-                  Go to workouts
-                </Link>
-              </div>
-            )}
+            <input
+              type="radio"
+              name="my_tabs_6"
+              className="tab bg-transparent text-[#8A92A0] checked:bg-[#232732] checked:text-[#C2F800] rounded-lg"
+              aria-label="Saved"
+              checked={activeTab === "saved"}
+              onChange={() => setActiveTab("saved")}
+            />
           </div>
 
-          <input
-            type="radio"
-            name="my_tabs_6"
-            className="tab"
-            aria-label="Saved"
-            checked={activeTab === "saved"}
-            onChange={() => setActiveTab("saved")}
-          />
-
-          <div className="tab-content w-full bg-[#101115] border border-[#2a2e3b] rounded-b-2xl p-2 md:p-3">
-            {saved.length > 0 ? (
-              <div className="space-y-3 p-3 md:p-5">
+          <div className="mt-4">
+            {activeTab === "plan" ? (
+              plan.length > 0 ? (
+                <div className="space-y-3">
+                  {plan.map((workout) => (
+                    <PlanSavedCard
+                      key={workout.id}
+                      workout={workout}
+                      type="plan"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="py-10 text-center text-[#8A92A0]">
+                  No workouts in today&apos;s plan.
+                </div>
+              )
+            ) : saved.length > 0 ? (
+              <div className="space-y-3">
                 {saved.map((workout) => (
                   <PlanSavedCard
                     key={workout.id}
@@ -118,21 +105,8 @@ const MyPlan = () => {
                 ))}
               </div>
             ) : (
-              <div className="min-h-60 md:min-h-64 lg:min-h-72 border border-dashed border-[#272b34] rounded-xl flex flex-col justify-center items-center text-center px-5">
-                <h2 className="uppercase font-heading font-bold text-base md:text-lg mb-2">
-                  Nothing Here Yet
-                </h2>
-
-                <p className="text-xs md:text-sm text-[#8A8D96] mb-5">
-                  Save your favorite lifts and find them here later.
-                </p>
-
-                <Link
-                  href="/"
-                  className="btn bg-[#C2F800] hover:bg-[#C2F800] text-black font-semibold rounded-3xl border-0 text-xs sm:text-sm px-5 sm:px-6"
-                >
-                  Go to workouts
-                </Link>
+              <div className="py-10 text-center text-[#8A92A0]">
+                No saved workouts.
               </div>
             )}
           </div>

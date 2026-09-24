@@ -8,7 +8,7 @@ const Banner = () => {
         md:flex-row
         md:justify-between
         items-center
-        bg-[#222630]
+        bg-[#15171D]
         rounded-2xl
         px-5 py-8
         sm:px-8 sm:py-10
