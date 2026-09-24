@@ -15,7 +15,6 @@ const Navbar = () => {
         top-0
         bg-[#090A0D]
         z-50
-        mb-1 md:mb-5 lg:mb-8
         px-2 sm:px-4 md:px-8 lg:px-16 xl:px-24
       "
     >

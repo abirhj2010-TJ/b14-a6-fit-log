@@ -12,32 +12,12 @@ const NavBadge = () => {
     <div className="flex gap-1 sm:gap-2">
       <Link
         href="/my-plan"
-        className="
-            btn btn-ghost
-            rounded-full
-            btn-xs
-            sm:btn-sm
-            md:btn-md
-            px-2
-            text-[10px]
-            sm:text-xs
-            md:text-sm
-          "
+        className="btn btn-ghost rounded-full btn-xs sm:btn-sm md:btn-md px-2 text-[10px] sm:text-xs md:text-sm"
       >
         <span>Plan</span>
 
         <div
-          className="
-              badge
-              rounded-full
-              w-5 h-5
-              sm:w-6 sm:h-6
-              md:w-7 md:h-7
-              bg-[#C2F800]
-              text-black
-              text-[10px]
-              sm:text-xs
-            "
+          className="badge rounded-full w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 bg-[#C2F800] text-black text-[10px] sm:text-xs"
         >
           {plan.length}
         </div>
@@ -45,30 +25,12 @@ const NavBadge = () => {
 
       <Link
         href="/my-plan"
-        className="
-            btn btn-ghost
-            rounded-full
-            btn-xs
-            sm:btn-sm
-            md:btn-md
-            px-1
-            text-[10px]
-            sm:text-xs
-            md:text-sm
-          "
+        className=" btn btn-ghost rounded-full btn-xs sm:btn-sm md:btn-md px-1 text-[10px] sm:text-xs md:text-sm"
       >
         <span>Saved</span>
 
         <div
-          className="
-              badge
-              rounded-full
-              w-5 h-5
-              sm:w-6 sm:h-6
-              md:w-7 md:h-7
-              text-[10px]
-              sm:text-xs
-            "
+          className="badge rounded-full w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[10px] sm:text-xs"
         >
           {saved.length}
         </div>

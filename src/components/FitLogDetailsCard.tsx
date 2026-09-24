@@ -1,9 +1,7 @@
 import Image from "next/image";
-// import { FaBookmark, FaCalendarPlus } from "react-icons/fa";
 import type { Workout } from "@/type/type";
 import FitLogDetailsCardButton from "./FitLogDetailsCardButton";
-// import { useContext } from "react";
-// import { FitLogContext } from "@/context/FitLogContext";
+
 
 type FitLogDetailsCardProps = {
   fitLog: Workout;

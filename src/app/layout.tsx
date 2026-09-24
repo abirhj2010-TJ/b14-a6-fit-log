@@ -25,15 +25,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      data-theme = "dark"
+      data-theme="dark"
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${oswald.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#090A0D] container mx-auto">
         <FitLogProvider>
           <Navbar></Navbar>
-
-          {children}
+          <main className="flex-1 flex flex-col">{children}</main>
 
           <Footer></Footer>
 

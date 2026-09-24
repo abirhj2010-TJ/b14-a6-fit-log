@@ -2,7 +2,7 @@
 
 import { FitLogContext } from "@/context/FitLogContext";
 import PlanSavedCard from "@/components/shared/PlanSavedCard";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Workout } from "@/type/type";
 import Link from "next/link";
 import { FaDumbbell, FaChevronDown } from "react-icons/fa";
@@ -13,8 +13,25 @@ const MyPlan = () => {
   const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">(
     "duration",
   );
+  const [loading, setLoading] = useState(false);
 
   const activeWorkouts: Workout[] = activeTab === "plan" ? plan : saved;
+  const isEmpty = activeWorkouts.length === 0;
+
+  useEffect(() => {
+    if (isEmpty) {
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [activeTab, isEmpty]);
 
   const sortedWorkouts = [...activeWorkouts].sort((a, b) => {
     if (sortBy === "duration") {
@@ -37,8 +54,6 @@ const MyPlan = () => {
     (total, workout) => total + workout.caloriesBurned,
     0,
   );
-
-  const isEmpty = activeWorkouts.length === 0;
 
   return (
     <div className="my-7 px-4 md:px-8 lg:px-16 xl:px-24">
@@ -110,7 +125,7 @@ const MyPlan = () => {
                     e.target.value as "duration" | "calories" | "rating",
                   )
                 }
-                className="appearance-none bg-[#13161D] border border-[#2a2e3b] text-white text-xs  md:text-sm rounded-lg pl-2 pr-6 py-1.5 outline-none focus:border-[#C2F800] cursor-pointer"
+                className="appearance-none bg-[#13161D] border border-[#2a2e3b] text-white text-xs md:text-sm rounded-lg pl-2 pr-6 py-1.5 outline-none focus:border-[#C2F800] cursor-pointer"
               >
                 <option value="duration">Duration</option>
                 <option value="calories">Calories</option>
@@ -123,7 +138,15 @@ const MyPlan = () => {
         </div>
 
         <div className="mt-4">
-          {isEmpty ? (
+          {loading ? (
+            <div className="min-h-72 rounded-2xl border border-[#2a2e3b] bg-[#13161D] flex flex-col items-center justify-center">
+              <span className="loading loading-spinner loading-md text-[#C2F800]"></span>
+
+              <p className="text-[#8A92A0] text-sm mt-3">
+                Loading workouts…
+              </p>
+            </div>
+          ) : isEmpty ? (
             <div className="min-h-72 rounded-2xl border border-[#2a2e3b] bg-[#13161D] flex flex-col items-center justify-center text-center px-5 py-12">
               <h3 className="font-heading uppercase font-bold text-xl md:text-2xl mb-2">
                 Nothing Here Yet
