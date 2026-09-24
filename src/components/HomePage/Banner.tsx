@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaDumbbell } from "react-icons/fa";
 
 const Banner = () => {
   return (
@@ -56,21 +57,25 @@ const Banner = () => {
         <a
           href="#library"
           className="
-            btn
-            bg-[#C2F800]
-            hover:bg-[#C2F800]
-            text-black
-            font-semibold
-            rounded-xl
-            border-0
-            text-xs
-            sm:text-sm
-            px-5
-            sm:px-6
-            w-full
-            sm:w-auto
-          "
+          inline-flex
+          items-center
+          justify-center
+          gap-2
+          bg-[#C2F800]
+          hover:bg-[#C2F800]
+          text-black
+          font-semibold
+          rounded-xl
+          text-xs
+          sm:text-sm
+          px-5
+          sm:px-6
+          py-3
+          w-full
+          sm:w-auto
+  "
         >
+          <FaDumbbell className="text-sm" />
           BROWSE WORKOUTS
         </a>
       </div>
