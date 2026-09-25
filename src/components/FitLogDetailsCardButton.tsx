@@ -12,24 +12,24 @@ const FitLogDetailsCardButton = ({ fitLog }: { fitLog: Workout }) => {
     const alreadyAdded = plan.some((item) => item.id === fitLog.id);
 
     if (alreadyAdded) {
-      toast.error("Already added to Plan");
+      toast.error("Already added to Today's Plan");
       return;
     }
 
     setPlan((prev) => [...prev, fitLog]);
-    toast.success("Added to Plan");
+    toast.success("Added to Today's Plan");
   };
 
   const handleSaved = () => {
     const alreadySaved = saved.some((item) => item.id === fitLog.id);
 
     if (alreadySaved) {
-      toast.error("Already saved");
+      toast.error("Already Saved");
       return;
     }
 
     setSaved((prev) => [...prev, fitLog]);
-    toast.success("Saved");
+    toast.success("Added to Saved");
   };
 
   return (

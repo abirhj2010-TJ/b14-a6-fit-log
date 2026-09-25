@@ -13,20 +13,7 @@ const FitLogDetailsCard = ({ fitLog }: FitLogDetailsCardProps) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10 ">
       <div>
-        <Image
-          src={fitLog.image}
-          alt={fitLog.name}
-          width={700}
-          height={700}
-          className="
-            w-full
-            h-80
-            sm:h-100
-            md:h-140
-            lg:h-170
-            object-cover
-            rounded-2xl
-          "
+        <Image src={fitLog.image} alt={fitLog.name} width={700} height={700} className=" w-full h-80 sm:h-100 md:h-140 lg:h-170 object-cover rounded-2xl "
         />
       </div>
 
@@ -43,14 +30,7 @@ const FitLogDetailsCard = ({ fitLog }: FitLogDetailsCardProps) => {
           {fitLog.muscleGroups.map((muscle) => (
             <span
               key={muscle}
-              className="
-                px-3 py-1
-                rounded-full
-                bg-[#C2F800]
-                text-black
-                text-xs
-                font-semibold
-              "
+              className=" px-3 py-1 rounded-full bg-[#C2F800] text-black text-xs font-semibold "
             >
               {muscle}
             </span>
