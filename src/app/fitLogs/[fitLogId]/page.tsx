@@ -1,5 +1,6 @@
 import type { Workout } from "@/type/type";
 import FitLogDetailsCard from "@/components/FitLogDetailsCard";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{
@@ -11,7 +12,7 @@ const getFitLog = async (id: string): Promise<Workout> => {
   const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch workout");
+    notFound();
   }
 
   return res.json();

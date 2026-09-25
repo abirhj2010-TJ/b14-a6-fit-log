@@ -1,5 +1,5 @@
 import { Workout } from "@/type/type";
-import React from "react";
+import React, { Suspense } from "react";
 import FitlogsCard from "../FitlogsCard";
 
 const getFitLogs = async () => {
@@ -24,24 +24,11 @@ const Fitlogs = async () => {
       </p>
 
       <div
-        className="
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          lg:grid-cols-3
-          gap-4
-          sm:gap-5
-          lg:gap-6
-          mt-5
-          sm:mt-6
-          md:mt-8
+        className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mt-5 sm:mt-6 md:mt-8
         "
       >
         {fitLogsData.map((fitLog) => (
-          <FitlogsCard
-            key={fitLog.id}
-            fitLog={fitLog}
-          />
+          <FitlogsCard key={fitLog.id} fitLog={fitLog} />
         ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { FitLogContext } from "@/context/FitLogContext";
-import PlanSavedCard from "@/components/shared/PlanSavedCard";
+import PlanSavedCard from "@/components/HomePage/PlanSavedCard";
 import { useContext, useEffect, useState } from "react";
 import { Workout } from "@/type/type";
 import Link from "next/link";
@@ -20,11 +20,15 @@ const MyPlan = () => {
 
   useEffect(() => {
     if (isEmpty) {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 0);
       return;
     }
 
-    setLoading(true);
+    setTimeout(() => {
+      setLoading(true);
+    }, 0);
 
     const timer = setTimeout(() => {
       setLoading(false);
@@ -142,9 +146,7 @@ const MyPlan = () => {
             <div className="min-h-72 rounded-2xl border border-[#2a2e3b] bg-[#13161D] flex flex-col items-center justify-center">
               <span className="loading loading-spinner loading-md text-[#C2F800]"></span>
 
-              <p className="text-[#8A92A0] text-sm mt-3">
-                Loading workouts…
-              </p>
+              <p className="text-[#8A92A0] text-sm mt-3">Loading workouts…</p>
             </div>
           ) : isEmpty ? (
             <div className="min-h-72 rounded-2xl border border-[#2a2e3b] bg-[#13161D] flex flex-col items-center justify-center text-center px-5 py-12">
