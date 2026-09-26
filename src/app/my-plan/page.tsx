@@ -43,7 +43,7 @@ const MyPlan = () => {
     }
 
     if (sortBy === "calories") {
-      return a.caloriesBurned - b.caloriesBurned;
+      return b.caloriesBurned - a.caloriesBurned;
     }
 
     return b.rating - a.rating;

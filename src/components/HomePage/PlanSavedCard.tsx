@@ -21,10 +21,10 @@ const PlanSavedCard = ({ workout, type }: PlanSavedCardProps) => {
   const handleRemove = () => {
     if (type === "plan") {
       setPlan((prev) => prev.filter((item) => item.id !== workout.id));
-      toast.success("Workout removed from your plan");
+      toast.success("Workout removed from Today's Plan");
     } else {
       setSaved((prev) => prev.filter((item) => item.id !== workout.id));
-      toast.success("Workout removed from saved");
+      toast.success("Workout removed from Saved");
     }
   };
 

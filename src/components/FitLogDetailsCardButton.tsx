@@ -27,7 +27,7 @@ const FitLogDetailsCardButton = ({ fitLog }: { fitLog: Workout }) => {
     const alreadySaved = saved.some((item) => item.id === fitLog.id);
 
     if (alreadySaved) {
-      toast.error("Already Saved");
+      toast.error("Already added to Saved");
       return;
     }
 

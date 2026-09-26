@@ -1,5 +1,4 @@
 import { Workout } from "@/type/type";
-import React, { Suspense } from "react";
 import FitlogsCard from "../FitlogsCard";
 
 const getFitLogs = async () => {
