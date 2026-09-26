@@ -39,42 +39,42 @@ const FitLogDetailsCard = ({ fitLog }: FitLogDetailsCardProps) => {
 
         <div className="mt-5 rounded-xl border border-gray-800 bg-[#161920]">
           <div className="flex justify-between items-center px-4 py-3 border-b border-gray-800">
-            <span className="text-[10px] uppercase text-[#9CA3AF] font-semibold">
+            <span className="text-[12px] uppercase text-[#9CA3AF] font-semibold">
               Equipment
             </span>
             <span className="text-xs sm:text-sm">{fitLog.equipment}</span>
           </div>
 
           <div className="flex justify-between items-center px-4 py-3 border-b border-gray-800">
-            <span className="text-[10px] uppercase text-[#9CA3AF] font-semibold">
+            <span className="text-[12px] uppercase text-[#9CA3AF] font-semibold">
               Difficulty
             </span>
             <span className="text-xs sm:text-sm">{fitLog.difficulty}</span>
           </div>
 
           <div className="flex justify-between items-center px-4 py-3 border-b border-gray-800">
-            <span className="text-[10px] uppercase text-[#9CA3AF] font-semibold">
+            <span className="text-[12px] uppercase text-[#9CA3AF] font-semibold">
               Sets
             </span>
             <span className="text-xs sm:text-sm">{fitLog.sets}</span>
           </div>
 
           <div className="flex justify-between items-center px-4 py-3 border-b border-gray-800">
-            <span className="text-[10px] uppercase text-[#9CA3AF] font-semibold">
+            <span className="text-[12px] uppercase text-[#9CA3AF] font-semibold">
               Reps
             </span>
             <span className="text-xs sm:text-sm">{fitLog.reps}</span>
           </div>
 
           <div className="flex justify-between items-center px-4 py-3 border-b border-gray-800">
-            <span className="text-[10px] uppercase text-[#9CA3AF] font-semibold">
+            <span className="text-[12px] uppercase text-[#9CA3AF] font-semibold">
               Duration
             </span>
             <span className="text-xs sm:text-sm">{fitLog.duration} min</span>
           </div>
 
           <div className="flex justify-between items-center px-4 py-3 border-b border-gray-800">
-            <span className="text-[10px] uppercase text-[#9CA3AF] font-semibold">
+            <span className="text-[12px] uppercase text-[#9CA3AF] font-semibold">
               Calories
             </span>
             <span className="text-xs sm:text-sm">
@@ -83,7 +83,7 @@ const FitLogDetailsCard = ({ fitLog }: FitLogDetailsCardProps) => {
           </div>
 
           <div className="flex justify-between items-center px-4 py-3">
-            <span className="text-[10px] uppercase text-[#9CA3AF] font-semibold">
+            <span className="text-[12px] uppercase text-[#9CA3AF] font-semibold">
               Rating
             </span>
             <span className="text-xs sm:text-sm">{fitLog.rating}</span>

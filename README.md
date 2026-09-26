@@ -1,10 +1,10 @@
 # Project Name
 
-* The name of this project is FitLog
+* FITLOG
 
 ## Project Description
 
-FitLog is a modern fitness companion designed to help users discover workouts, build a daily workout plan, and save exercises for later. Users can explore workout details, organize their selected exercises, and sort their workouts based on different criteria.
+FITLOG is a modern fitness companion designed to help users discover workouts, build a daily workout plan, and save exercises for later. Users can explore workout details, organize their selected exercises, and sort their workouts based on different criteria.
 
 ## Technologies Used
 
